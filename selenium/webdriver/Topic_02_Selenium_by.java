@@ -31,14 +31,19 @@ public class Topic_02_Selenium_by {
 		driver.findElement(By.linkText("Log In"));
 		//get CSS
 		driver.findElement(By.cssSelector("input[id='email']"));
+		driver.findElement(By.cssSelector("input[name='email']"));
 		//get Xpath
 		driver.findElement(By.xpath("//input[@id='email']"));
-
+		//driver.findElement(By.xpath("//button[@id='u_0_b_3V']"));
+		driver.findElement(By.xpath("//input[@type='password']"));
 	}
 
 	@Test
-	public void TC_02_ValidatePageTitle() {
-
+	public void TC_02() {
+    // driver.get("https://www.facebook.com/");
+     //driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+    // driver.findElement(By.cssSelector("a[id='u_0_0_pZ']"));
+    // driver.findElement(By.xpath("//a[@id='u_0_0_pZ']"));
 	}
 
 	@Test
