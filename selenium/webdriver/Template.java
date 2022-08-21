@@ -22,17 +22,17 @@ public class Template {
 	}
 
 	@Test
-	public void TC_01_ValidateCurrentUrl() {
+	public void TC_01() {
 
 	}
 
 	@Test
-	public void TC_02_ValidatePageTitle() {
+	public void TC_02() {
 
 	}
 
 	@Test
-	public void TC_03_LoginFormDisplayed() {
+	public void TC_03() {
 	}
 
 	@AfterClass
