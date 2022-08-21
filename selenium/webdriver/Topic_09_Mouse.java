@@ -57,7 +57,7 @@ public class Topic_09_Mouse {
 	}
 
 	// bài này mk chưa làm xong đang bị lỗi chỗ get ra text trong thẻ a
-	// @Test
+	 @Test
 	public void TC_03_Hover() {
 		driver.get("https://www.fahasa.com/");
 		WebElement menu = driver.findElement(By.cssSelector("span.icon_menu"));
@@ -66,8 +66,8 @@ public class Topic_09_Mouse {
 		Assert.assertEquals(driver.findElement(By.xpath("//a[@title='Sách Trong Nước'] //span")).getText(),
 				"Sách Trong Nước");
 		System.out.println("aa" + driver.findElement(By.xpath("//li//a[text()='Tâm Lý']")));
-		Assert.assertTrue(driver.findElement(By.xpath("//a[text()='Tâm Lý']/parent::li /parent::ul/parent::div"))
-				.getText().contains("Tâm Lý"));
+		Assert.assertTrue(driver.findElement(By.xpath("//a[text()='Tâm Lý']"))
+				.getAttribute("href").contains("tam-ly.html"));
 	}
 
 	// @Test
