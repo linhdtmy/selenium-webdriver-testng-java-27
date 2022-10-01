@@ -8,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -69,8 +70,31 @@ public class Topic_13_JsExecutor {
 	}
 
 	@Test
-	public void TC_02() {
+	public void TC_02_Verify() {
+		navigateToUrlByJS("https://automationfc.github.io/html5/index.html");
+		sleepInSecond(5);
+		String submit ="//input[@name='submit-btn']";
+		clickToElementByJS(submit);
+		sleepInSecond(2);
+		Assert.assertEquals(getElementValidationMessage("//input[@id='fname']"), "Please fill out this field.");
+		
+		sendkeyToElementByJS("//input[@id='fname']", "ABC");
+		clickToElementByJS(submit);
+		sleepInSecond(2);
+		Assert.assertEquals(getElementValidationMessage("//input[@id='pass']"), "Please fill out this field.");
+		
+		sendkeyToElementByJS("//input[@id='pass']", "123@abc");
+		clickToElementByJS(submit);
+		sleepInSecond(2);
+		Assert.assertEquals(getElementValidationMessage("//input[@id='em']"), "Please fill out this field.");
 
+		sendkeyToElementByJS("//input[@id='em']", "abc433454@gmail.com");
+		clickToElementByJS(submit);
+		sleepInSecond(2);
+		Assert.assertEquals(getElementValidationMessage("//select"), "Please select an item in the list.");
+		
+		new Select(driver.findElement(By.xpath("//select"))).selectByVisibleText("HA NOI");
+		clickToElementByJS(submit);
 	}
 
 	@Test
@@ -108,7 +132,14 @@ public class Topic_13_JsExecutor {
 		clickToElementByJS(registrator);
 
 	}
-
+	@Test
+	public void TC_04_Remove_Attribute() {
+		navigateToUrlByJS("http://demo.guru99.com/v4");
+		sleepInSecond(3);
+		sendkeyToElementByJS("//input[@name='uid']", "mngr238966");
+		sendkeyToElementByJS("//input[@name='password']", "emYmEqe");
+		clickToElementByJS("//input[@name='btnLogin']");
+	}
 	public Object executeForBrowser(String javaScript) {
 		return jsExecutor.executeScript(javaScript);
 	}
